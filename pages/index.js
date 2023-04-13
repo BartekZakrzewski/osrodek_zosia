@@ -16,6 +16,9 @@ const Home = () => {
               <a target='_blank' href='https://www.nocowanie.pl/noclegi/rowy/kwatery_i_pokoje/59524/' className={`${styles.btn} ${styles.emptBtn}`}>Wirtualny Spacer</a>
             </div>
           </div>
+          <div className={styles.basicInfoContainer}>
+            
+          </div>
         </section>
       </main>
     </div>

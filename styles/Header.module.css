@@ -47,7 +47,7 @@
 }
 
 .fancy{
-    color: #8E2DE2;
+    color: #7F7FD5;
 }
 
 .btn{
@@ -84,7 +84,9 @@
     height: 100%;
     overflow-x: hidden;
 
-    text-shadow: 1px 1px 1px #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    /* text-shadow: 1px 1px 1px #000; */
 }
 .navItem::before{
     content: '';
@@ -92,9 +94,13 @@
     transform: translateX(-120%);
     width: 100%;
     height: 1rem;
-    background: #8E2DE2;
+    /* background: #8E2DE2;
     background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
-    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+    background: linear-gradient(to right, #4A00E0, #8E2DE2); */
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+
 }
 .navItem:hover::before{
     animation: navhover 400ms forwards;
@@ -139,9 +145,13 @@
         justify-content: flex-start;
         
 
-        background: #8E2DE2;
+        /* background: #8E2DE2;
         background: -webkit-linear-gradient(110deg, #4A00E0, #8E2DE2);
-        background: linear-gradient(110deg, #4A00E0, #8E2DE2);
+        background: linear-gradient(110deg, #4A00E0, #8E2DE2); */
+        background: #7F7FD5;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+        background: linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+
 
         transition: transform 200ms ease-in-out;
     }
