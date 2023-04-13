@@ -7,10 +7,16 @@ const Home = () => {
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
-        <div className={styles.landingPage}>
+        <section className={styles.landingPage}>
           <video src={"/videoBg.mp4"} autoPlay loop muted playsInline className={styles.video} />
-          
-        </div>
+          <div className={styles.landingContainer}>
+            <h1 className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></h1>
+            <div className={styles.buttons}>
+              <a href='#kontakt' className={`${styles.btn} ${styles.fullBtn}`}>Kontakt</a>
+              <a target='_blank' href='https://www.nocowanie.pl/noclegi/rowy/kwatery_i_pokoje/59524/' className={`${styles.btn} ${styles.emptBtn}`}>Wirtualny Spacer</a>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )

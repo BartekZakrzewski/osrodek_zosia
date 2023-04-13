@@ -27,13 +27,27 @@
 }
 
 .logo{
-    height: 90%;
+    /* height: 90%;
     width: 30%;
     margin: 1rem 0 1rem 0;
     background-image: url("https://zosiarowy.pl/wp-content/uploads/2022/06/cropped-ciemne-logo.png");
     background-position: center;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+
+    text-shadow: 0px 0px 7px #000;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.fancy{
+    color: #8E2DE2;
 }
 
 .btn{
@@ -69,6 +83,8 @@
     justify-content: center;
     height: 100%;
     overflow-x: hidden;
+
+    text-shadow: 1px 1px 1px #000;
 }
 .navItem::before{
     content: '';

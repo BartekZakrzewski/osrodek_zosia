@@ -39,7 +39,9 @@ const Header = () => {
     return (
     <header className={styles.header}>
         <div className={styles.container}>
-            <div className={styles.logo} />
+            <a href='/' className={styles.logo} >
+                VILLA<span className={styles.fancy}>ZOSIA</span>
+            </a>
 
             <button className={`${styles.openMenuIcon} ${styles.btn}`} onClick={() => setOpen(!isOpen)}>
                 <HiMenuAlt4 />
