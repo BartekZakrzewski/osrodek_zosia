@@ -42,7 +42,7 @@
     border-radius: 2rem;
     padding: .5rem 1.5rem;
 
-    outline: 2px solid #8E2DE2;
+    border: 2px solid #8E2DE2;
     font-family: 'Lato', sans-serif;
 
     transition: opacity 200ms ease-in-out;
