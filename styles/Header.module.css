@@ -10,8 +10,8 @@
 
     height: 5rem;
     border-bottom: 2px solid #fff;
-    
-    margin: 0 1rem;
+
+    transition: background-color 200ms ease-in-out;
 }
 
 .container{
@@ -100,10 +100,18 @@
     animation: navhover 400ms forwards;
 }
 
+.scrolled{
+    background-color: #333;
+    border: none;
+}
+
 @media screen and (max-width: 767px) {
     .header{
         align-items: center;
         justify-content: space-around;
+
+        background-color: #333;
+        border: none;
     }
     
     .openMenuIcon, .closeMenuIcon{

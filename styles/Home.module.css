@@ -68,14 +68,18 @@
 }
 
 @media screen and (width <= 767px) {
-    .video{
-        width: 200% !important;
+    .landingPage{
+        margin-top: 5rem;
     }
 
     .name{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
+
+    .btn{
+        font-size: 1rem;
+    }
     .btn:hover{
         opacity: 1 !important;
     }

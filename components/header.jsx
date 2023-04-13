@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from '../styles/Header.module.css'
 import { HiMenuAlt4, HiX } from "react-icons/hi"
 import Link from 'next/link'
@@ -37,8 +37,28 @@ const Header = () => {
 
     const [isOpen, setOpen] = useState(false);
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = e => {
+            if(window.scrollY >= 100){
+                setScrolled(true);
+                console.log(scrolled)
+            } else if(window.scrollY < 100){ 
+                setScrolled(false);
+                console.log(scrolled)
+            }
+        };
+      
+          window.addEventListener('scroll', handleScroll);
+      
+          return () => {
+            window.removeEventListener('scroll', handleScroll);
+          };
+    }, [])
+
     return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled && styles.scrolled}`}>
         <div className={styles.container}>
             <Link href='/' className={styles.logo} >
                 VILLA<span className={styles.fancy}>ZOSIA</span>
