@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styles from '../styles/Header.module.css'
 import { HiMenuAlt4, HiX } from "react-icons/hi"
+import Link from 'next/link'
 
 const Header = () => {
     const navs = [
@@ -39,9 +40,9 @@ const Header = () => {
     return (
     <header className={styles.header}>
         <div className={styles.container}>
-            <a href='/' className={styles.logo} >
+            <Link href='/' className={styles.logo} >
                 VILLA<span className={styles.fancy}>ZOSIA</span>
-            </a>
+            </Link>
 
             <button className={`${styles.openMenuIcon} ${styles.btn}`} onClick={() => setOpen(!isOpen)}>
                 <HiMenuAlt4 />
