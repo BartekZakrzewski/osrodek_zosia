@@ -15,7 +15,7 @@ const Room = ({ room }) => {
 export default Room
 
 export async function getStaticProps({ params }){
-    const req = await fetch(`http://localhost:3000/pokoje.json`)
+    const req = await fetch(`https://villazosia.vercel.app//pokoje.json`)
     const data = await req.json()
 
     const _id = params.id
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }){
 }
 
 export async function getStaticPaths() {
-    const req = await fetch('http://localhost:3000/pokoje_titles.json')
+    const req = await fetch('https://villazosia.vercel.app//pokoje_titles.json')
     const data = await req.json()
 
     const paths = data.map((room) => {
