@@ -10,6 +10,7 @@
 }
 
 .landingContainer{
+    padding-top: 2rem;
     width: 100%;
     position: absolute;
     display: flex;
@@ -237,6 +238,17 @@
     color: #333;
 }
 
+.galery{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.galeryImg{
+    width: 100%;
+    height: 100%;
+}
+
 .access{
     width: 100%;
     display: flex;
@@ -268,6 +280,113 @@
 .accessMap{
     width: 80%;
     height: 20rem;
+    border-radius: .5rem;
+}
+
+.roomsBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Lato', sans-serif;
+
+    background-color: #444;
+}
+
+.roomsTitle{
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.roomsContainer{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.roomsBtn{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    position: relative;
+    overflow-x: hidden;
+
+    margin: 2rem;
+
+    text-decoration: underline;
+}
+.roomsBtn::before{
+    content: '';
+    position: absolute;
+    transform: translateX(-120%);
+    width: 100%;
+    height: 1.5rem;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(45deg, #91EAE4, #86A8E7, #7F7FD5);
+}
+.roomsBtn:hover::before{
+    animation: hoverAnimation 400ms forwards;
+}
+
+.reservation{
+    width: 100%;
+    padding: 5rem;
+    background-image: url('http://localhost:3000/photos/1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reservationContainer{
+    width: 80%;
+    display: flex;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.reservationLeft{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.reservationIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.reservationRight{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.reservationLabel{
+    display: flex;
+    flex-direction: column;
+}
+.reservationLabel > *:not(input){
+    padding: .5rem;
+}
+
+.reservationInput{
+    all: unset;
+    background-color: #ddd;
+    cursor: pointer;
+    padding: .5rem;
+    border-radius: 2rem;
 }
 
 @media screen and (width <= 767px) {
@@ -351,5 +470,18 @@
         color: #fff;
         border-radius: 2rem;
         border: 2px solid #fff;
+    }
+
+    .galery{
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes hoverAnimation {
+    0%{
+        transform: translateX(-120%);
+    }
+    100%{
+        transform: translateX(120%);
     }
 }

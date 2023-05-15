@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useState, useEffect} from 'react'
 import styles from '../styles/Header.module.css'
 import { HiMenuAlt4, HiX } from "react-icons/hi"
@@ -8,6 +10,10 @@ const Header = () => {
         {
             text: "O nas",
             href: "#o-nas"
+        },
+        {
+            text: "Galeria",
+            href: "#galeria"
         },
         {
             text: "Dojazd",
@@ -24,11 +30,7 @@ const Header = () => {
         {
             text: "Opinie",
             href: "#opinie"
-        },
-        {
-            text: "Galeria",
-            href: "#galeria"
-        },
+        },   
         {
             text: "Kontakt",
             href: "#kontakt"
