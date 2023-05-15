@@ -78,8 +78,8 @@ const Home = async () => {
             {bInfos.map((info, index) => (
               <div className={styles.basicInfoEl} key={index}>
                 <div className={styles.basicInfoIcon}>{info.icon}</div>
-                <div className={styles.basicInfoTitle}>{info.title}</div>
-                <div className={`${styles.cutoffText} ${styles.basicInfoDesc}`}>{info.desc}</div>
+                <h2 className={styles.basicInfoTitle}>{info.title}</h2>
+                <p className={`${styles.cutoffText} ${styles.basicInfoDesc}`}>{info.desc}</p>
               </div>
             ))}
           </div>
@@ -148,7 +148,7 @@ const Home = async () => {
               </label>
               <label className={styles.reservationLabel}>
                 Treść rezerwacji
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                <textarea className={styles.reservationTextarea} name="content" id="content" cols="30" rows="10"></textarea>
               </label>
               <button className={styles.reservationButton}>Wyślij</button>
             </form>
