@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .header{
     position: fixed;
     top: 0;
@@ -27,13 +30,6 @@
 }
 
 .logo{
-    /* height: 90%;
-    width: 30%;
-    margin: 1rem 0 1rem 0;
-    background-image: url("https://zosiarowy.pl/wp-content/uploads/2022/06/cropped-ciemne-logo.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat; */
 
     display: flex;
     align-items: center;

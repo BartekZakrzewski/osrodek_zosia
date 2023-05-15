@@ -8,7 +8,6 @@ async function getRoom(pageSlug) {
 }
 
 const Room = async ({ params }) => {
-    console.log(params.id)
     const room = await getRoom(params.id)
 
     return (
