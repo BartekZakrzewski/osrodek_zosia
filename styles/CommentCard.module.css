@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid #7F7FD5;
+    overflow: hidden;
+    
+    padding: .25rem;
+}
+
+.name{
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.comment{
+    color: #ddd;
+}

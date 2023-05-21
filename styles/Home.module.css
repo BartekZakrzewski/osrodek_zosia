@@ -439,6 +439,82 @@
     font-size: .7rem;
 }
 
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #444;
+    padding: 4rem;
+}
+
+.commentsContainer{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.commentsHeader{
+    color: #fff;
+}
+
+.opinion{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    background-color: #444;
+    border-top: 1px solid #fff;
+    padding: 1rem;
+    padding-bottom: 3rem;
+}
+
+.opinionSmall{
+    display: none;
+}
+
+.opinionHeader{
+    align-self: center;
+    justify-self: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.opinionForm{
+    width: 80%;
+    display: flex;
+    gap: 2rem;
+    margin: auto;
+}
+
+.opinionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.opinionLabel{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.opinionInput{
+    all: unset;
+    background-color: #ddd;
+    color: #000;
+    cursor: text;
+    padding: .5rem;
+    border-radius: 2rem;
+}
+
+.opinionTextarea{
+    all: unset;
+    resize: none;
+    cursor: text;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+    padding: .5rem;
+}
+
 @media screen and (width <= 767px) {
     .landingPage{
         margin-top: 5rem;
@@ -541,6 +617,22 @@
 
     .reservationContainer{
         flex-direction: column;
+    }
+
+    .commentsContainer{
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+
+    .opinionForm{
+        flex-direction: column;
+    }
+
+    .opinionBig{
+        display: none;
+    }
+
+    .opinionSmall{
+        display: flex;
     }
 }
 

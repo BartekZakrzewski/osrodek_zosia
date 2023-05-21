@@ -9,31 +9,31 @@ const Header = () => {
     const navs = [
         {
             text: "O nas",
-            href: "#o-nas"
+            href: "https://www.villazosia.pl/#o-nas"
         },
         {
             text: "Galeria",
-            href: "#galeria"
+            href: "https://www.villazosia.pl/#galeria"
         },
         {
             text: "Dojazd",
-            href: "#dojazd"
+            href: "https://www.villazosia.pl/#dojazd"
         },
         {
             text: "Pokoje",
-            href: "#pokoje" 
+            href: "https://www.villazosia.pl/#pokoje" 
         },
         {
             text: "Rezerwacja",
-            href: "#rezerwacja" 
+            href: "https://www.villazosia.pl/#rezerwacja" 
         },
         {
             text: "Opinie",
-            href: "#opinie"
+            href: "https://www.villazosia.pl/#opinie"
         },   
         {
             text: "Kontakt",
-            href: "#kontakt"
+            href: "https://www.villazosia.pl/#kontakt"
         }
     ]
 
@@ -60,7 +60,7 @@ const Header = () => {
     return (
     <header className={`${styles.header} ${scrolled && styles.scrolled}`}>
         <div className={styles.container}>
-            <Link href='/' className={styles.logo} >
+            <Link href='https://www.villazosia.pl/' className={styles.logo} >
                 VILLA<span className={styles.fancy}>ZOSIA</span>
             </Link>
 
@@ -75,7 +75,7 @@ const Header = () => {
                 <ul className={styles.navItems}>
                     {navs.map((dest, index) => (
                         <li className={styles.navItem} key={index}>
-                            <a href={dest.href} className={styles.navLink}>{dest.text}</a>
+                            <Link href={dest.href} className={styles.navLink}>{dest.text}</Link>
                         </li>
                     ))}
                 </ul>
