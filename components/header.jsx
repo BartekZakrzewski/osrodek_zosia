@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import styles from '../styles/Header.module.css'
 import { HiMenuAlt4, HiX } from "react-icons/hi"
 import Link from 'next/link'
@@ -41,20 +41,21 @@ const Header = () => {
 
     const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = e => {
+    const handleScroll = useCallback(e => {
             if(window.scrollY >= 10){
                 setScrolled(true);
             } else if(window.scrollY < 10){ 
                 setScrolled(false);
             }
+    }, [])
+
+    useEffect(() => {
+      
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll, { passive: true });
         };
-      
-          window.addEventListener('scroll', handleScroll);
-      
-          return () => {
-            window.removeEventListener('scroll', handleScroll);
-          };
     }, [])
 
     return (
