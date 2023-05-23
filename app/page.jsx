@@ -15,12 +15,14 @@ import Footer from '../components/footer';
 async function getRooms() {
   const db = new PocketBase('https://villazosia.pockethost.io')
   const data = await db.collection('rooms').getList(1, 3)
+  console.log(data)
   return data?.items
 }
 
 async function getComments() {
   const db = new PocketBase('https://villazosia.pockethost.io')
   const comments = await db.collection('opinions').getList(1, 30)
+  console.log(comments)
   return comments?.items
 }
 

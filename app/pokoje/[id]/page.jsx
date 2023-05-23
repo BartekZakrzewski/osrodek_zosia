@@ -11,18 +11,18 @@ async function getRoom(pageSlug) {
 }
 
 const Room = async ({ params }) => {
-    const roomData = await getRoom(params.id)
-    const room = roomData[0]
+    const room = await getRoom(params.id)
+    console.log(room)
 
     return (
         <div className={styles.container}>
             <Header />
             <main className={styles.main}>
-                <h1 className={styles.title}>{room.title}</h1>
+                <h1 className={styles.title}>{room[0].title}</h1>
                 <div className={styles.art}>
-                    <img src={`https://villazosia.pockethost.io/api/files/9bumucatft976cw/${room.id}/${room.photo}`} className={styles.img} />
+                    <img src={`https://villazosia.pockethost.io/api/files/9bumucatft976cw/${room[0].id}/${room[0].photo}`} className={styles.img} />
                     <p className={styles.paragraph}>
-                        {room.description}
+                        {room[0].description}
                     </p>
                 </div>
             </main>
