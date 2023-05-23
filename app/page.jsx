@@ -2,7 +2,7 @@
 
 import '../styles/globals.css'
 import styles from '../styles/Home.module.css'
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/header.jsx'
 import RoomCard from '../components/roomCard'
 import CommentCard from '../components/commentCard'
@@ -15,14 +15,14 @@ import Footer from '../components/footer';
 async function getRooms() {
   const db = new PocketBase('https://villazosia.pockethost.io')
   const data = await db.collection('rooms').getList(1, 3)
-  console.log(data)
+  console.log(data.items)
   return data?.items
 }
 
 async function getComments() {
   const db = new PocketBase('https://villazosia.pockethost.io')
   const comments = await db.collection('opinions').getList(1, 30)
-  console.log(comments)
+  console.log(comments.items)
   return comments?.items
 }
 
@@ -31,7 +31,6 @@ const Home = async () => {
   const name = useRef(null); 
   const mail = useRef(null); 
   const comment = useRef(null);
-  
   const bInfos = [
     {
       icon: <FaAnchor />,
@@ -74,11 +73,6 @@ const Home = async () => {
   ];
 
   const photos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-  const rooms = await getRooms();
-  const comments = await getComments();
-
-  
   function postComment(e) {
     const db = new PocketBase('https://villazosia.pockethost.io')
     const data = {
@@ -86,9 +80,13 @@ const Home = async () => {
       "email": mail.current.value,
       "comment": comment.current.value
     }
+    console.log(data)
 
     const record = db.collection('opinions').create(data);
   }
+
+  const rooms = await getRooms()
+  const comments = await getComments()
 
   return (
     <div className={styles.container}>
