@@ -61,9 +61,12 @@ const Header = () => {
     return (
     <header className={`${styles.header} ${scrolled && styles.scrolled}`}>
         <div className={styles.container}>
-            <Link href='https://www.villazosia.pl/' className={styles.logo} >
-                VILLA<span className={styles.fancy}>ZOSIA</span>
-            </Link>
+            <div className={styles.logo}>
+                <Link href='https://www.villazosia.pl/' className={styles.logoLink} >
+                    VILLA<span className={styles.fancy}>ZOSIA</span>
+                </Link>
+            </div>
+            
 
             <button className={`${styles.openMenuIcon} ${styles.btn}`} onClick={() => setOpen(!isOpen)}>
                 <HiMenuAlt4 />

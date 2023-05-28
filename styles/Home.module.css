@@ -33,6 +33,27 @@
     margin-left: .5rem;
     color: #ca4440;
     font-weight: 900;
+    display: inline-block;
+
+    animation: circleColors 2000ms ease-in-out 100ms infinite normal forwards;
+}
+
+@keyframes circleColors {
+    0%{
+        color: #ca4440;
+    }
+    25%{
+        color: #7F7FD5;
+    }
+    50%{
+        color: #fff;
+    }
+    75%{
+        color: #7F7FD5;
+    }
+    100%{
+        color: #ca4440;
+    }
 }
 
 .buttons{

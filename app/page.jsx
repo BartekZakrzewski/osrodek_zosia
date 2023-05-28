@@ -12,24 +12,11 @@ import { BiMailSend, BiPhone } from "react-icons/bi";
 import PocketBase from 'pocketbase'
 import Footer from '../components/footer';
 
-async function getRooms() {
-  const db = new PocketBase('https://villazosia.pockethost.io')
-  const data = await db.collection('rooms').getList(1, 3)
-  console.table(data)
-  return data?.items
-}
-
-async function getComments() {
-  const db = new PocketBase('https://villazosia.pockethost.io')
-  const comments = await db.collection('opinions').getList(1, 30)
-  return comments?.items
-}
-
-
 const Home = async () => {
   const name = useRef(null); 
   const mail = useRef(null); 
   const comment = useRef(null);
+
   const bInfos = [
     {
       icon: <FaAnchor />,
@@ -70,7 +57,18 @@ const Home = async () => {
       desc: 'Dbamy o komfort wypoczynku, dlatego nasz system kamer działa na twoją korzyść przez całą dobę.'
     }
   ];
+  async function getRooms() {
+    const db = new PocketBase('https://villazosia.pockethost.io')
+    const data = await db.collection('rooms').getList(1, 3)
+    console.table(data)
+    return data?.items
+  }
 
+  async function getComments() {
+    const db = new PocketBase('https://villazosia.pockethost.io')
+    const comments = await db.collection('opinions').getList(1, 30)
+    return comments?.items
+  }
   const photos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   function postComment(e) {
     const db = new PocketBase('https://villazosia.pockethost.io')
@@ -82,16 +80,14 @@ const Home = async () => {
 
     const record = db.collection('opinions').create(data);
   }
-
-  const rooms = await getRooms()
-  const comments = await getComments()
-
+  const rooms = await getRooms();
+  const comments = await getComments();
   return (
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
         <section className={styles.landingPage}>
-          <video src={"/videoBg.mp4"} autoPlay loop muted playsInline className={styles.video} />
+          <video src="videoBg.mp4" autoPlay loop playsInline className={styles.video} />
           <div className={styles.landingContainer}>
             <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
             <div className={styles.buttons}>
