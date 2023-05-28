@@ -15,6 +15,7 @@ import Footer from '../components/footer';
 async function getRooms() {
   const db = new PocketBase('https://villazosia.pockethost.io')
   const data = await db.collection('rooms').getList(1, 3)
+  console.table(data)
   return data?.items
 }
 
@@ -135,7 +136,7 @@ const Home = async () => {
           <h1 className={styles.accessHeader}>Dojazd</h1>
           <h5 className={styles.accessAdress}>ul. Wikingów 2 - róg ulicy Bałtyckiej</h5>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.7505181685474!2d17.04886817716438!3d54.66121717553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6adde9f09bd5%3A0x5f301f2f751eb2c2!2sZosia!5e0!3m2!1spl!2spl!4v1681501456925!5m2!1spl!2spl" style={{border: "0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.7505181685474!2d17.04886817716438!3d54.66121717553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6adde9f09bd5%3A0x5f301f2f751eb2c2!2sZosia!5e0!3m2!1spl!2spl!4v1681501456925!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
         </section>
         <section className={styles.roomsBox} id='pokoje'>
           <h1 className={styles.roomsTitle}>Pokoje</h1>
