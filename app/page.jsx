@@ -87,7 +87,7 @@ const Home = async () => {
       <Header />
       <main className={styles.main}>
         <section className={styles.landingPage}>
-          <video src="videoBg.mp4" autoPlay loop playsInline className={styles.video} />
+          <video src={"videoBg.mp4"} autoPlay loop playsInline className={styles.video} />
           <div className={styles.landingContainer}>
             <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
             <div className={styles.buttons}>
