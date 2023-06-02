@@ -11,6 +11,8 @@ import { TbDisabled, TbDeviceTv, TbCamera, TbMoodKid } from "react-icons/tb";
 import { BiMailSend, BiPhone, BiSolidVolumeMute, BiSolidVolumeFull, BiVolumeMute, BiVolumeFull } from "react-icons/bi";
 import PocketBase from 'pocketbase'
 import Footer from '../components/footer';
+import emailjs from '@emailjs/browser';
+
 const db = new PocketBase('https://villazosia.pockethost.io');
 db.autoCancellation = false;
 
@@ -22,7 +24,9 @@ const Home = () => {
   const [rooms, setRooms] = useState([]);
   const [comments, setComments] = useState([]);
   const [isMuted, setMuted] = useState(true);
-
+  
+  const reservationInputs = useRef();
+  const commentInputs = useRef();
   const vid = useRef();
 
   async function getRooms() {
@@ -44,16 +48,22 @@ const Home = () => {
     }
     
     const record = db.collection('opinions').create(data);
-    setName('')
-    setMail('')
-    setComment('')
-
     getComments()
-  }  
+    for(let i = 0; i <= 3; i++) if(i !=2) commentInputs.current[i].value = '';
+    
+  }
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(process.env['REACT_APP_SERVICE_ID'], process.env['REACT_APP_TEMPLATE_ID'], reservationInputs.current, process.env['REACT_APP_PUBLIC_KEY'])
+    .then(res => {
+      for(let i = 0; i <= 2; i++) reservationInputs.current[i].value = '';
+    })
+  }
 
   function unmute() {
-    let video = vid.current;
-    video.muted = !isMuted;
+    vid.current.muted = !isMuted;
     setMuted(m => !m)
   }
   
@@ -103,9 +113,10 @@ const Home = () => {
   useEffect(() => {
     getRooms();
     getComments();
-    //unmute();
   }, [])
 
+  
+  
   return (
     <div className={styles.container}>
       <Header />
@@ -186,24 +197,24 @@ const Home = () => {
               <h2 className={styles.reservationTitle}>Złóż rezerwację!</h2>
               <a href="tel:+48510105465" className={styles.reservationPhone}> <BiPhone /> Zadzwoń</a>
             </div>
-            <form className={styles.reservationRight}>
+            <form className={styles.reservationRight} ref={reservationInputs} onSubmit={sendEmail}>
               <label className={styles.reservationLabel}>
                 Imię i Nazwisko
-                <input className={styles.reservationInput} type="text" name="name" id="name" required />
+                <input className={styles.reservationInput} type="text" name="user_name" id="name" required />
                 <span className={styles.rodo}>
                   Administratorem Pani/Pana danych osobowych jest właściciel Pensjonatu Zosia. Posiada Pani/Pan prawo dostępu do treści swoich danych, prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych lub do wniesienia sprzeciwu wobec ich przetwarzania. Ma Pani/Pan prawo wniesienia skargi do organu nadzorczego - PUODO, gdy uzna Pani/Pan, iż przetwarzanie danych osobowych narusza przepisy RODO.
                 </span>
               </label>
               <label className={styles.reservationLabel}>
                 Email
-                <input className={styles.reservationInput} type="email" name="email" id="email" required />
+                <input className={styles.reservationInput} type="email" name="user_email" id="email" required />
                 <span className={styles.rodo}>
                   Informujemy, iż Pani/Pana dane osobowe przekazane nam za pośrednictwem poczty elektronicznej są przetwarzane w celu prowadzenia korespondencji z Państwem i w celu, dla którego zostały nam udostępnione.
                 </span>
               </label>
               <label className={styles.reservationLabel}>
                 Treść rezerwacji
-                <textarea className={styles.reservationTextarea} name="content" id="content" cols="30" rows="10"></textarea>
+                <textarea className={styles.reservationTextarea} name="message" id="content" cols="30" rows="10"></textarea>
               </label>
               <button className={styles.reservationButton}>Wyślij</button>
             </form>
@@ -221,7 +232,7 @@ const Home = () => {
         </section>
         <section className={styles.opinion}>
           <h2 className={styles.opinionHeader}>Zostaw opinię!</h2>
-          <form className={styles.opinionForm} onSubmit={postComment}>
+          <form className={styles.opinionForm} ref={commentInputs} onSubmit={postComment}>
             <div className={styles.opinionContainer}>
               <label className={styles.opinionLabel}>
               Imię
@@ -231,12 +242,12 @@ const Home = () => {
                 Email
                 <input className={styles.opinionInput} type="email" name="email" id="email" required onChange={e => setMail(e.target.value)} />
               </label>
-              <button className={`${styles.reservationButton} ${styles.opinionBig}`}>Wyślij</button>
+              <button id='opinionbig' className={`${styles.reservationButton} ${styles.opinionBig}`}>Wyślij</button>
             </div>
             <label className={styles.opinionLabel}>
               Treść opinii
               <textarea className={styles.opinionTextarea} name="content" id="content" cols="30" rows="7" onChange={e => setComment(e.target.value)}></textarea>
-              <button className={`${styles.reservationButton} ${styles.opinionSmall}`}>Wyślij</button>
+              <button id='opinionsmall' className={`${styles.reservationButton} ${styles.opinionSmall}`}>Wyślij</button>
             </label>
           </form>
         </section>
