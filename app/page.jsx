@@ -3,12 +3,12 @@
 import '../styles/globals.css'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useRef, useState } from 'react';
-import Header from '../components/header.jsx'
+import Header from '../components/header'
 import RoomCard from '../components/roomCard'
 import CommentCard from '../components/commentCard'
 import { FaAnchor, FaBed, FaFire, FaEnvelope } from "react-icons/fa";
 import { TbDisabled, TbDeviceTv, TbCamera, TbMoodKid } from "react-icons/tb";
-import { BiMailSend, BiPhone } from "react-icons/bi";
+import { BiMailSend, BiPhone, BiSolidVolumeMute, BiSolidVolumeFull, BiVolumeMute, BiVolumeFull } from "react-icons/bi";
 import PocketBase from 'pocketbase'
 import Footer from '../components/footer';
 const db = new PocketBase('https://villazosia.pockethost.io');
@@ -16,11 +16,13 @@ db.autoCancellation = false;
 
 
 const Home = () => {
-  const [name, setName] = useState('');
-  const [mail, setMail] = useState('');
-  const [comment, setComment] = useState('');
+  const [name, setName] = useState();
+  const [mail, setMail] = useState();
+  const [comment, setComment] = useState();
   const [rooms, setRooms] = useState([]);
   const [comments, setComments] = useState([]);
+  const [isMuted, setMuted] = useState(true);
+
   const vid = useRef();
 
   async function getRooms() {
@@ -50,7 +52,9 @@ const Home = () => {
   }  
 
   function unmute() {
-    vid.current.muted = false
+    let video = vid.current;
+    video.muted = !isMuted;
+    setMuted(m => !m)
   }
   
   const bInfos = [
@@ -99,7 +103,7 @@ const Home = () => {
   useEffect(() => {
     getRooms();
     getComments();
-    unmute();
+    //unmute();
   }, [])
 
   return (
@@ -107,7 +111,7 @@ const Home = () => {
       <Header />
       <main className={styles.main}>
         <section className={styles.landingPage}>
-        <video muted loop autoPlay playsInline className={styles.video} ref={vid} >
+          <video muted loop autoPlay playsInline className={styles.video} ref={vid} >
             <source src="videoBg.mp4" type="video/mp4" />
           </video>
           <div className={styles.landingContainer}>
@@ -115,8 +119,14 @@ const Home = () => {
             <div className={styles.buttons}>
               <a href='tel:+48510105465' className={`${styles.btn} ${styles.fullBtn}`}>Zadzwoń</a>
               <a target='_blank' href='https://www.nocowanie.pl/noclegi/rowy/kwatery_i_pokoje/59524/' className={`${styles.btn} ${styles.emptBtn}`}>Wirtualny Spacer</a>
+              <div className={`${styles.btn} ${styles.fullBtn} ${styles.muteBtn}`} onClick={() => {
+                unmute();
+              }} >
+                {isMuted && <BiVolumeMute /> || !isMuted && <BiVolumeFull />}
+              </div>
             </div>
           </div>
+          
           <div className={styles.basicInfoContainer}>
             {bInfos.map((info, index) => (
               <div className={styles.basicInfoEl} key={index}>

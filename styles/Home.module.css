@@ -61,6 +61,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: .5rem;
 }
 
 .btn{
@@ -91,10 +92,16 @@
 
 .emptBtn{
     color: #7F7FD5;
-    margin-left: 1rem;
 }
 .emptBtn:hover{
     opacity: .9;
+}
+
+.muteBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .basicInfoContainer{
