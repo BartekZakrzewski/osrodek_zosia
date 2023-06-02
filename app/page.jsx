@@ -11,12 +11,48 @@ import { TbDisabled, TbDeviceTv, TbCamera, TbMoodKid } from "react-icons/tb";
 import { BiMailSend, BiPhone } from "react-icons/bi";
 import PocketBase from 'pocketbase'
 import Footer from '../components/footer';
+const db = new PocketBase('https://villazosia.pockethost.io');
+db.autoCancellation = false;
 
-const Home = async () => {
-  const name = useRef(null); 
-  const mail = useRef(null); 
-  const comment = useRef(null);
 
+const Home = () => {
+  const [name, setName] = useState('');
+  const [mail, setMail] = useState('');
+  const [comment, setComment] = useState('');
+  const [rooms, setRooms] = useState([]);
+  const [comments, setComments] = useState([]);
+  const vid = useRef();
+
+  async function getRooms() {
+    const data = await db.collection('rooms').getList(1, 3, { '$autoCancel': false })
+    setRooms(data.items)
+  }
+
+  async function getComments() {
+    const comments = await db.collection('opinions').getList(1, 30, { '$autoCancel' : false })
+    setComments(comments.items);
+  }
+
+  function postComment(e) {
+    e.preventDefault()
+    const data = {
+      "name": name,
+      "email": mail,
+      "comment": comment
+    }
+    
+    const record = db.collection('opinions').create(data);
+    setName('')
+    setMail('')
+    setComment('')
+
+    getComments()
+  }  
+
+  function unmute() {
+    vid.current.muted = false
+  }
+  
   const bInfos = [
     {
       icon: <FaAnchor />,
@@ -57,37 +93,23 @@ const Home = async () => {
       desc: 'Dbamy o komfort wypoczynku, dlatego nasz system kamer działa na twoją korzyść przez całą dobę.'
     }
   ];
-  async function getRooms() {
-    const db = new PocketBase('https://villazosia.pockethost.io')
-    const data = await db.collection('rooms').getList(1, 3)
-    console.table(data)
-    return data?.items
-  }
-
-  async function getComments() {
-    const db = new PocketBase('https://villazosia.pockethost.io')
-    const comments = await db.collection('opinions').getList(1, 30)
-    return comments?.items
-  }
   const photos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  function postComment(e) {
-    const db = new PocketBase('https://villazosia.pockethost.io')
-    const data = {
-      "name": name.current.value,
-      "email": mail.current.value,
-      "comment": comment.current.value
-    }
 
-    const record = db.collection('opinions').create(data);
-  }
-  const rooms = await getRooms();
-  const comments = await getComments();
+
+  useEffect(() => {
+    getRooms();
+    getComments();
+    unmute();
+  }, [])
+
   return (
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
         <section className={styles.landingPage}>
-          <video src={"videoBg.mp4"} autoPlay loop playsInline className={styles.video} />
+        <video muted loop autoPlay playsInline className={styles.video} ref={vid} >
+            <source src="videoBg.mp4" type="video/mp4" />
+          </video>
           <div className={styles.landingContainer}>
             <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
             <div className={styles.buttons}>
@@ -137,9 +159,11 @@ const Home = async () => {
         <section className={styles.roomsBox} id='pokoje'>
           <h1 className={styles.roomsTitle}>Pokoje</h1>
           <div className={styles.roomsContainer}>
-            {rooms.map(room => (
-              <RoomCard room={room} key={room.id}/>
-            ))}
+            {
+              rooms?.map(room => (
+                <RoomCard room={room} key={room.id}/>
+              ))
+            }
           </div>
           <a href="/pokoje" className={styles.roomsBtn}>Wszystkie pokoje</a>
         </section>
@@ -178,8 +202,7 @@ const Home = async () => {
         <section className={styles.comments}>
           <h1 className={styles.commentsHeader}>Opinie naszych gości:</h1>
           <div className={styles.commentsContainer}>
-            {
-              comments.map(item => (
+            { comments?.map(item => (
                 <CommentCard userName={item.name} userComment={item.comment} key={item.id} />
               ))
             }
@@ -192,17 +215,17 @@ const Home = async () => {
             <div className={styles.opinionContainer}>
               <label className={styles.opinionLabel}>
               Imię
-              <input className={styles.opinionInput} type="text" name="name" id="name" required ref={name} />
+              <input className={styles.opinionInput} type="text" name="name" id="name" required onChange={e => setName(e.target.value)} />
               </label>
               <label className={styles.opinionLabel}>
                 Email
-                <input className={styles.opinionInput} type="email" name="email" id="email" required ref={mail} />
+                <input className={styles.opinionInput} type="email" name="email" id="email" required onChange={e => setMail(e.target.value)} />
               </label>
               <button className={`${styles.reservationButton} ${styles.opinionBig}`}>Wyślij</button>
             </div>
             <label className={styles.opinionLabel}>
               Treść opinii
-              <textarea className={styles.opinionTextarea} name="content" id="content" cols="30" rows="7" ref={comment}></textarea>
+              <textarea className={styles.opinionTextarea} name="content" id="content" cols="30" rows="7" onChange={e => setComment(e.target.value)}></textarea>
               <button className={`${styles.reservationButton} ${styles.opinionSmall}`}>Wyślij</button>
             </label>
           </form>
