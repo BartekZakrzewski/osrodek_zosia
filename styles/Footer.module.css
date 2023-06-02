@@ -30,6 +30,14 @@
     transition: background-color 200ms ease-in-out;
 }
 
+.link:first-child{
+    border-left: none;
+}
+
+.link:last-child{
+    border-right: none;
+}
+
 .text{
     font-size: 1rem;
 }

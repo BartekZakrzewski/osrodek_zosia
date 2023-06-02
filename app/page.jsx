@@ -177,7 +177,7 @@ const Home = () => {
           </div>
           <a href="/pokoje" className={styles.roomsBtn}>Wszystkie pokoje</a>
         </section>
-        <section className={styles.reservation}>
+        <section className={styles.reservation} id='rezerwacja'>
           <div className={styles.reservationContainer}>
             <div className={styles.reservationLeft}> 
               <div className={styles.reservationIcon}>
@@ -209,7 +209,7 @@ const Home = () => {
             </form>
           </div>
         </section>
-        <section className={styles.comments}>
+        <section className={styles.comments} id='opinie'>
           <h1 className={styles.commentsHeader}>Opinie naszych gości:</h1>
           <div className={styles.commentsContainer}>
             { comments?.map(item => (

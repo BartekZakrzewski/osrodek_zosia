@@ -6,7 +6,7 @@ import { AiFillPushpin, AiFillMail, AiFillPhone, AiFillFacebook, AiFillYoutube }
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id='kontakt'>
       <Link href={'https://goo.gl/maps/rcnS3WNkkj4XJhy98?coh=178573&entry=tt'} className={`${styles.link} ${styles.pin}`}>
         <MdLocationPin />
         <span className={styles.text}>Wikingów 2, 76-212 Rowy</span>

@@ -2,6 +2,7 @@
 
 import React, {useState, useEffect, useCallback} from 'react'
 import styles from '../styles/Header.module.css'
+import '../styles/globals.css'
 import { HiMenuAlt4, HiX } from "react-icons/hi"
 import Link from 'next/link'
 
@@ -9,31 +10,31 @@ const Header = () => {
     const navs = [
         {
             text: "O nas",
-            href: "https://www.villazosia.pl/#o-nas"
+            href: "#o-nas"
         },
         {
             text: "Galeria",
-            href: "https://www.villazosia.pl/#galeria"
+            href: "#galeria"
         },
         {
             text: "Dojazd",
-            href: "https://www.villazosia.pl/#dojazd"
+            href: "#dojazd"
         },
         {
             text: "Pokoje",
-            href: "https://www.villazosia.pl/#pokoje" 
+            href: "#pokoje" 
         },
         {
             text: "Rezerwacja",
-            href: "https://www.villazosia.pl/#rezerwacja" 
+            href: "#rezerwacja" 
         },
         {
             text: "Opinie",
-            href: "https://www.villazosia.pl/#opinie"
+            href: "#opinie"
         },   
         {
             text: "Kontakt",
-            href: "https://www.villazosia.pl/#kontakt"
+            href: "#kontakt"
         }
     ]
 
@@ -79,7 +80,9 @@ const Header = () => {
                 <ul className={styles.navItems}>
                     {navs.map((dest, index) => (
                         <li className={styles.navItem} key={index}>
-                            <Link href={dest.href} className={styles.navLink}>{dest.text}</Link>
+                            <Link onClick={() => {
+                                if(isOpen) setOpen(false)
+                            }} href={dest.href} className={styles.navLink}>{dest.text}</Link>
                         </li>
                     ))}
                 </ul>
