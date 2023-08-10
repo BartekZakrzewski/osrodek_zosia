@@ -53,11 +53,11 @@ const Home = () => {
   }
 
   const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, reservationInputs.current, process.env.REACT_APP_PUBLIC_KEY)
+    e.preventDefault()
+    console.log(e)
+    emailjs.sendForm('service_o3qhaqj', 'template_5676evo', reservationInputs.current, 'eJjg2wqADZIE-SbT6')
     .then(res => {
-      for(let i = 0; i <= 2; i++) reservationInputs.current[i].value = '';
+      console.log(res.text)
     })
   }
 
