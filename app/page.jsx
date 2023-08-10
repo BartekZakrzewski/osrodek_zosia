@@ -16,7 +16,6 @@ import emailjs from '@emailjs/browser';
 const db = new PocketBase('https://villazosia.pockethost.io');
 db.autoCancellation = false;
 
-
 const Home = () => {
   const [name, setName] = useState();
   const [mail, setMail] = useState();
@@ -56,7 +55,7 @@ const Home = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(process.env['REACT_APP_SERVICE_ID'], process.env['REACT_APP_TEMPLATE_ID'], reservationInputs.current, process.env['REACT_APP_PUBLIC_KEY'])
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, reservationInputs.current, process.env.REACT_APP_PUBLIC_KEY)
     .then(res => {
       for(let i = 0; i <= 2; i++) reservationInputs.current[i].value = '';
     })
@@ -164,6 +163,10 @@ const Home = () => {
             ))}
           </div>
         </section>
+        <section className={styles.urodziny__zosi__container} id='facebook'>
+          <h2 className={styles.urodziny__zosi__header}>5 Urodziny Zosi</h2>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100063517214269%2Fvideos%2F436898308481665%2F&show_text=true&width=560&t=0" width="560" height="429" style={{border: 'none', overflow: 'hidden', borderRadius: '1rem'}} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" className={styles.fb__post__big} allowFullScreen="true"></iframe>
+        </section>
         <section className={styles.galery} id='galeria'>
           {
             photos.map((photo, index) => (
@@ -175,7 +178,7 @@ const Home = () => {
           <h1 className={styles.accessHeader}>Dojazd</h1>
           <h5 className={styles.accessAdress}>ul. Wikingów 2 - róg ulicy Bałtyckiej</h5>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.7505181685474!2d17.04886817716438!3d54.66121717553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6adde9f09bd5%3A0x5f301f2f751eb2c2!2sZosia!5e0!3m2!1spl!2spl!4v1681501456925!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.7505181685474!2d17.04886817716438!3d54.66121717553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6adde9f09bd5%3A0x5f301f2f751eb2c2!2sZosia!5e0!3m2!1spl!2spl!4v1681501456925!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
         </section>
         <section className={styles.roomsBox} id='pokoje'>
           <h1 className={styles.roomsTitle}>Pokoje</h1>

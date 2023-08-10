@@ -230,6 +230,29 @@
     gap: 1rem;
 }
 
+.urodziny__zosi__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.urodziny__zosi__header{
+    font-size: large;
+    font-weight: bold;
+}
+.urodziny__zosi__header::before, .urodziny__zosi__header::after{
+    content: '🥧';
+}
+
+.fb__post__big{
+    aspect-ratio: 429/560;
+}
+@media screen and (width <= 767px) {
+    .fb__post__big{
+        width: 300px;
+    }
+}
+
 .standardCard{
     display: grid;
     grid-template-columns: 20% 80%;
