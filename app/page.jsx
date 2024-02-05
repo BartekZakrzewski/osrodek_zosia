@@ -126,7 +126,7 @@ const Home = () => {
             <source src="videoBg.mp4" type="video/mp4" />
           </video> */}
           <div className={styles.landingContainer}>
-            <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
+            <span className={styles.name}>Oddaj <span className={styles.fancy}>KASĘ</span></span>
             <div className={styles.buttons}>
               {/* <a href='tel:+48510105465' className={`${styles.btn} ${styles.fullBtn}`}>Zadzwoń</a>
               <a target='_blank' href='https://www.nocowanie.pl/noclegi/rowy/kwatery_i_pokoje/59524/' className={`${styles.btn} ${styles.emptBtn}`}>Wirtualny Spacer</a>
