@@ -17,7 +17,7 @@ const Footer = () => {
       </Link>
       <Link href={'tel:+48510105465'} className={`${styles.link} ${styles.phone}`}>
         <AiFillPhone />
-        <span className={styles.text}>+48 510 105 465</span>
+        {/* <span className={styles.text}>+48 510 105 465</span> */}
       </Link>
       <Link href={''} className={`${styles.link} ${styles.fb}`}>
         <MdFacebook />

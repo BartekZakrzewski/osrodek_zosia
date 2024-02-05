@@ -121,9 +121,10 @@ const Home = () => {
       <Header />
       <main className={styles.main}>
         <section className={styles.landingPage}>
-          <video muted loop autoPlay playsInline className={styles.video} ref={vid} >
+          <img src="/123123.jpg" alt="asdasd" className={styles.video} />
+          {/* <video muted loop autoPlay playsInline className={styles.video} ref={vid} >
             <source src="videoBg.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           <div className={styles.landingContainer}>
             <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
             <div className={styles.buttons}>
@@ -197,8 +198,8 @@ const Home = () => {
               <div className={styles.reservationIcon}>
                 <BiMailSend /> 
               </div> 
-              <h2 className={styles.reservationTitle}>Złóż rezerwację!</h2>
-              <a href="tel:+48510105465" className={styles.reservationPhone}> <BiPhone /> Zadzwoń</a>
+              <h2 className={styles.reservationTitle}>Nie składaj rezerwacji</h2>
+              {/* <a href="tel:+48510105465" className={styles.reservationPhone}> <BiPhone /> Zadzwoń</a> */}
             </div>
             <form className={styles.reservationRight} ref={reservationInputs} onSubmit={sendEmail}>
               <label className={styles.reservationLabel}>
