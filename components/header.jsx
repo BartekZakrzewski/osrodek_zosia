@@ -64,7 +64,7 @@ const Header = () => {
         <div className={styles.container}>
             <div className={styles.logo}>
                 <Link href='https://www.villazosia.pl/' className={styles.logoLink} >
-                    VILLA<span className={styles.fancy}>ZOSIA</span>
+                    ODDAJ<span className={styles.fancy}>KASĘ</span>
                 </Link>
             </div>
             
