@@ -69,18 +69,18 @@ const Home = () => {
   const bInfos = [
     {
       icon: <FaAnchor />,
-      title: 'Nocleg blisko morza w rowach',
-      desc: 'Pensjonat oddalony jest trzy minuty od centrum miejscowości Rowy, ale jednocześnie zapewnia ciszę i spokój zarazem będąc blisko morza. Rowy i okolicę wyróżnia piękna plaża, Słowiński Park Narodowy, zachodnie klifowe wybrzeże, które jest idealnym miejscem do nadmorskich spacerów, jezioro Gardno i rzeka Łupawa. Pensjonat oddalony jest o niecałe 1000 m od morza.'
+      title: 'Nocleg daleko od morza w rowach',
+      // desc: 'Pensjonat oddalony jest trzy minuty od centrum miejscowości Rowy, ale jednocześnie zapewnia ciszę i spokój zarazem będąc blisko morza. Rowy i okolicę wyróżnia piękna plaża, Słowiński Park Narodowy, zachodnie klifowe wybrzeże, które jest idealnym miejscem do nadmorskich spacerów, jezioro Gardno i rzeka Łupawa. Pensjonat oddalony jest o niecałe 1000 m od morza.'
     },
     {
       icon: <FaBed />,
-      title: 'Komfortowe noclegi i pokoje',
-      desc: 'Do dyspozycji naszych gości oddaliśmy pokoje: 2, 3, 4 i 5 osobowe z łazienkami z kabiną prysznicową, umywalką i wc. Dodatkowo kwatery wyposażone są w telewizor, oraz aneks kuchenny posiadający: lodówkę, czajnik elektryczny, podstawowe naczynia kuchenne i sztućce.'
+      title: 'Nie komfortowe noclegi i pokoje',
+      // desc: 'Do dyspozycji naszych gości oddaliśmy pokoje: 2, 3, 4 i 5 osobowe z łazienkami z kabiną prysznicową, umywalką i wc. Dodatkowo kwatery wyposażone są w telewizor, oraz aneks kuchenny posiadający: lodówkę, czajnik elektryczny, podstawowe naczynia kuchenne i sztućce.'
     },
     {
       icon: <FaFire />,
-      title: 'Strefa relaksu, plac zabaw',
-      desc: 'Do dyspozycji posiadamy ogrodzony parking, plac zabaw oraz miejsce do wspólnego grillowania.'
+      title: 'Brak strefy relaksu i placu zabaw',
+      // desc: 'Do dyspozycji posiadamy ogrodzony parking, plac zabaw oraz miejsce do wspólnego grillowania.'
     }
   ];
 
@@ -88,22 +88,22 @@ const Home = () => {
     {
       icon: <TbDeviceTv />,
       title: 'Telewizja i internet',
-      desc: 'Oferujemy pokoje z telewizją z podstawowymi programami. Wszystkie apartamenty, kwatery i pokoje dostają dostęp do Wi-Fi dla wygody korzystania z internetu i wypoczynku.'
+      desc: 'Nie oferujemy pokoi z telewizją z podstawowymi programami. Żadne apartamenty, kwatery i pokoje nie dostają dostępu do Wi-Fi dla wygody korzystania z internetu i wypoczynku.'
     },
     {
       icon: <TbDisabled />,
-      title: 'Kwatery i pokoje w przyziemiu',
-      desc: 'Zapraszamy osoby niepełnosprawne. Pokoje w przyziemiu zapewniają swobodny przejazd wózkiem do pokoju, tarasu i ogrodu!'
+      title: 'Kwatery i pokoje w podziemiu',
+      desc: 'Zapraszamy osoby pełnosprawne.'
     },
-    {
-      icon: <TbMoodKid />,
-      title: 'Atrakcje dla rodzin z dziećmi',
-      desc: 'Na dzieci czeka plac zabaw oraz mnóstwo innych atrakcji w samym centrum Rowów oraz na samej plaży. Dodatkowo zaraz przy Rowach znajduje się jezioro Gardno i rzeka Łupawa. Rowy dysponują również miejscami takimi jak Słowiński Park Narodowy czy ruchome wydmy blisko plaży.'
-    },
+    // {
+    //   icon: <TbMoodKid />,
+    //   title: 'Atrakcje dla rodzin z dziećmi',
+    //   desc: 'Na dzieci czeka plac zabaw oraz mnóstwo innych atrakcji w samym centrum Rowów oraz na samej plaży. Dodatkowo zaraz przy Rowach znajduje się jezioro Gardno i rzeka Łupawa. Rowy dysponują również miejscami takimi jak Słowiński Park Narodowy czy ruchome wydmy blisko plaży.'
+    // },
     {
       icon: <TbCamera />,
       title: 'Monitoring całodobowy',
-      desc: 'Dbamy o komfort wypoczynku, dlatego nasz system kamer działa na twoją korzyść przez całą dobę.'
+      desc: 'Nie dbamy o komfort wypoczynku, dlatego nasz system kamer działa na twoją niekorzyść przez całą dobę.'
     }
   ];
   const photos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -127,13 +127,13 @@ const Home = () => {
           <div className={styles.landingContainer}>
             <span className={styles.name}>Villa <span className={styles.fancy}>ZOSIA</span></span>
             <div className={styles.buttons}>
-              <a href='tel:+48510105465' className={`${styles.btn} ${styles.fullBtn}`}>Zadzwoń</a>
+              {/* <a href='tel:+48510105465' className={`${styles.btn} ${styles.fullBtn}`}>Zadzwoń</a>
               <a target='_blank' href='https://www.nocowanie.pl/noclegi/rowy/kwatery_i_pokoje/59524/' className={`${styles.btn} ${styles.emptBtn}`}>Wirtualny Spacer</a>
               <div className={`${styles.btn} ${styles.fullBtn} ${styles.muteBtn}`} onClick={() => {
                 unmute();
               }} >
                 {isMuted && <BiVolumeMute /> || !isMuted && <BiVolumeFull />}
-              </div>
+              </div> */}
             </div>
           </div>
           
@@ -149,7 +149,7 @@ const Home = () => {
         </section>
         <section className={styles.about} id='o-nas'>
           <h1 className={styles.aboutHeader}>
-            Nocleg w Rowach | Standard noclegu
+            Nocleg w Rowach | Standard noclegu - tragiczny
           </h1>
           <div className={styles.aboutGrid}>
             {standards.map((standard, index) => (
@@ -163,10 +163,10 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <section className={styles.urodziny__zosi__container} id='facebook'>
+        {/* <section className={styles.urodziny__zosi__container} id='facebook'>
           <h2 className={styles.urodziny__zosi__header}>5 Urodziny Zosi</h2>
           <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100063517214269%2Fvideos%2F436898308481665%2F&show_text=true&width=560&t=0" width="560" height="429" style={{border: 'none', overflow: 'hidden', borderRadius: '1rem'}} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" className={styles.fb__post__big} allowFullScreen="true"></iframe>
-        </section>
+        </section> */}
         <section className={styles.galery} id='galeria'>
           {
             photos.map((photo, index) => (
@@ -175,10 +175,10 @@ const Home = () => {
           }
         </section>
         <section className={styles.access} id='dojazd'>
-          <h1 className={styles.accessHeader}>Dojazd</h1>
-          <h5 className={styles.accessAdress}>ul. Wikingów 2 - róg ulicy Bałtyckiej</h5>
+          <h1 className={styles.accessHeader}>Dojazd do lepszego pensjonatu - Azalia</h1>
+          <h5 className={styles.accessAdress}>Bałtycka 4a, 76-212 Rowy</h5>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.7505181685474!2d17.04886817716438!3d54.66121717553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6adde9f09bd5%3A0x5f301f2f751eb2c2!2sZosia!5e0!3m2!1spl!2spl!4v1681501456925!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d576.93546042453!2d17.051898975532527!3d54.66136991705287!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6addc0a4a635%3A0x3d30d0e6c34c811!2sAzalia%20Pokoje%20go%C5%9Bcinne.!5e0!3m2!1spl!2spl!4v1707175851425!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
         </section>
         <section className={styles.roomsBox} id='pokoje'>
           <h1 className={styles.roomsTitle}>Pokoje</h1>

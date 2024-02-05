@@ -9,21 +9,21 @@ const Footer = () => {
     <footer className={styles.footer} id='kontakt'>
       <Link href={'https://goo.gl/maps/rcnS3WNkkj4XJhy98?coh=178573&entry=tt'} className={`${styles.link} ${styles.pin}`}>
         <MdLocationPin />
-        <span className={styles.text}>Wikingów 2, 76-212 Rowy</span>
+        <span className={styles.text}>Bałtycka 4a, 76-212 Rowy</span>
       </Link>
-      <Link href={'mailto:beatamajer@onet.pl'} className={`${styles.link} ${styles.mail}`}>
+      <Link href={''} className={`${styles.link} ${styles.mail}`}>
         <MdEmail />
-        <span className={styles.text}>beatamajer@onet.pl</span>
+        <span className={styles.text}></span>
       </Link>
       <Link href={'tel:+48510105465'} className={`${styles.link} ${styles.phone}`}>
         <AiFillPhone />
         <span className={styles.text}>+48 510 105 465</span>
       </Link>
-      <Link href={'https://www.facebook.com/Pensjonat-Zosia-382136231911015/'} className={`${styles.link} ${styles.fb}`}>
+      <Link href={''} className={`${styles.link} ${styles.fb}`}>
         <MdFacebook />
         <span className={styles.text}>Facebook</span>
       </Link>
-      <Link href={'https://www.youtube.com/watch?v=GnenWXrD3oY&ab_channel=ArturP'} className={`${styles.link} ${styles.yt}`}>
+      <Link href={''} className={`${styles.link} ${styles.yt}`}>
         <AiFillYoutube />
         <span className={styles.text}>Youtube</span>
       </Link>
