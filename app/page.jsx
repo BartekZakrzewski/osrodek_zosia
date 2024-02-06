@@ -176,12 +176,12 @@ const Home = () => {
           }
         </section>
         <section className={styles.access} id='dojazd'>
-          <h1 className={styles.accessHeader}>Dojazd do lepszego pensjonatu - Azalia</h1>
-          <h5 className={styles.accessAdress}>Bałtycka 4a, 76-212 Rowy</h5>
+          <h1 className={styles.accessHeader}>Fortnite Battlepass</h1>
+          <h5 className={styles.accessAdress}>57a, 74-100 Borzym</h5>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d576.93546042453!2d17.051898975532527!3d54.66136991705287!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6addc0a4a635%3A0x3d30d0e6c34c811!2sAzalia%20Pokoje%20go%C5%9Bcinne.!5e0!3m2!1spl!2spl!4v1707175851425!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2390.4466928643847!2d14.621538177144501!3d53.19190468626757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700abbac10e869b%3A0xc06cdf042f460aa2!2sFortnite!5e0!3m2!1spl!2spl!4v1707177679894!5m2!1spl!2spl" style={{border: "0"}} autoPlay allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className={styles.accessMap} />
         </section>
-        <section className={styles.roomsBox} id='pokoje'>
+        {/* <section className={styles.roomsBox} id='pokoje'>
           <h1 className={styles.roomsTitle}>Pokoje</h1>
           <div className={styles.roomsContainer}>
             {
@@ -191,7 +191,7 @@ const Home = () => {
             }
           </div>
           <a href="/pokoje" className={styles.roomsBtn}>Wszystkie pokoje</a>
-        </section>
+        </section> */}
         <section className={styles.reservation} id='rezerwacja'>
           <div className={styles.reservationContainer}>
             <div className={styles.reservationLeft}> 
@@ -205,16 +205,10 @@ const Home = () => {
               <label className={styles.reservationLabel}>
                 Imię i Nazwisko
                 <input className={styles.reservationInput} type="text" name="user_name" id="name" required />
-                <span className={styles.rodo}>
-                  Administratorem Pani/Pana danych osobowych jest właściciel Pensjonatu Zosia. Posiada Pani/Pan prawo dostępu do treści swoich danych, prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych lub do wniesienia sprzeciwu wobec ich przetwarzania. Ma Pani/Pan prawo wniesienia skargi do organu nadzorczego - PUODO, gdy uzna Pani/Pan, iż przetwarzanie danych osobowych narusza przepisy RODO.
-                </span>
               </label>
               <label className={styles.reservationLabel}>
                 Email
                 <input className={styles.reservationInput} type="email" name="user_email" id="email" required />
-                <span className={styles.rodo}>
-                  Informujemy, iż Pani/Pana dane osobowe przekazane nam za pośrednictwem poczty elektronicznej są przetwarzane w celu prowadzenia korespondencji z Państwem i w celu, dla którego zostały nam udostępnione.
-                </span>
               </label>
               <label className={styles.reservationLabel}>
                 Treść rezerwacji
